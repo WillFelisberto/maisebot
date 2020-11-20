@@ -9,9 +9,12 @@ const Bot = new Twit({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET,
   timeout_ms: 60 * 1000,
 });
+console.log("Ligado");
 
+let count = 0;
 setInterval(function () {
   const BotInit = () => {
+    console.log(count++);
     Bot.post(
       "statuses/update",
       {
@@ -24,4 +27,4 @@ setInterval(function () {
   };
 
   BotInit();
-}, 3600000); // 1 hora
+}, 60 * 60 * 1000); // 1 hora
