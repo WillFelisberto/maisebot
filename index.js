@@ -11,6 +11,17 @@ const Bot = new Twit({
 });
 console.log("Ligado");
 
+const maisebom = [
+  "mais é bom",
+  "bom d++ familia",
+  "MAIS BOM MESMO EIN",
+  "O MAIS É BOM",
+  "BOBO LENDO",
+  "O MAIS BOM"
+];
+
+const randomItem = maisebom[Math.floor(Math.random()*maisebom.length)];
+
 let count = 0;
 setInterval(function () {
   const BotInit = () => {
@@ -18,7 +29,7 @@ setInterval(function () {
     Bot.post(
       "statuses/update",
       {
-        status: "oh mais é bom",
+        status: randomItem,
       },
       function (err, _data, _response) {
         console.log(err);
