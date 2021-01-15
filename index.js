@@ -20,6 +20,7 @@ function shuffle(o) {
 	return o;
 }
 
+console.log('ligado');
 let count = 0;
 setInterval(function () {
 	const BotInit = () => {
