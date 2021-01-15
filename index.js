@@ -1,41 +1,39 @@
-const Twit = require("twit");
-require("dotenv").config();
-
-/* Instancie o bot com as chaves no arquivo .env */
-const Bot = new Twit({
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  access_token: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET,
-  timeout_ms: 60 * 1000,
-});
-console.log("Ligado");
+// const Twit = require('twit');
+require('dotenv').config();
+var _ = require('underscore');
 
 const maisebom = [
-  "mais é bom",
-  "bom d++ familia",
-  "MAIS BOM MESMO EIN",
-  "O MAIS É BOM",
-  "BOBO LENDO",
-  "O MAIS BOM"
+	'mais é bom',
+	'bom d++ familia',
+	'bão d+++',
+	'MAIS BOM MESMO EIN',
+	'O MAIS É BOM',
+	'O MAIS BOM',
 ];
 
-const randomItem = maisebom[Math.floor(Math.random()*maisebom.length)];
+function shuffle(o) {
+	for (
+		var j, x, i = o.length;
+		i;
+		j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x
+	);
+	return o;
+}
 
 let count = 0;
 setInterval(function () {
-  const BotInit = () => {
-    console.log(count++);
-    Bot.post(
-      "statuses/update",
-      {
-        status: randomItem,
-      },
-      function (err, _data, _response) {
-        console.log(err);
-      }
-    );
-  };
+	const BotInit = () => {
+		console.log(count++);
+		Bot.post(
+			'statuses/update',
+			{
+				status: shuffle(maisebom).shift(),
+			},
+			function (err, _data, _response) {
+				console.log(err);
+			}
+		);
+	};
 
-  BotInit();
+	BotInit();
 }, 60 * 60 * 1000); // 1 hora
