@@ -1,4 +1,4 @@
-// const Twit = require('twit');
+const Twit = require('twit');
 require('dotenv').config();
 var _ = require('underscore');
 
