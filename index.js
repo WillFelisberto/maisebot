@@ -11,6 +11,13 @@ const maisebom = [
 	'O MAIS BOM',
 ];
 
+const Bot = new Twit({
+	consumer_key: process.env.CONSUMER_KEY,
+	consumer_secret: process.env.CONSUMER_SECRET,
+	access_token: process.env.ACCESS_TOKEN,
+	access_token_secret: process.env.ACCESS_TOKEN_SECRET,
+});
+
 function shuffle(o) {
 	for (
 		var j, x, i = o.length;
