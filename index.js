@@ -18,15 +18,6 @@ const Bot = new Twit({
 	access_token_secret: process.env.ACCESS_TOKEN_SECRET,
 });
 
-function shuffle(o) {
-	for (
-		var j, x, i = o.length;
-		i;
-		j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x
-	);
-	return o;
-}
-
 console.log('ligado');
 let count = 0;
 setInterval(function () {
