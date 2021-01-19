@@ -21,9 +21,6 @@ const Bot = new Twit({
 console.log('ligado');
 let count = 0;
 setInterval(function () {
-	if (count === maisebom.length - 1) {
-		count = 0;
-	}
 	const BotInit = () => {
 		Bot.post(
 			'statuses/update',
@@ -36,5 +33,9 @@ setInterval(function () {
 		);
 	};
 
+	if (count === maisebom.length - 1) {
+		count = 0;
+	}
+	count++;
 	BotInit();
 }, 60 * 60 * 1000); // 1 hora
