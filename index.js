@@ -4,11 +4,11 @@ var _ = require('underscore');
 
 const maisebom = [
 	'mais é bom',
+	'OMAISÉBOMMMM',
 	'bom d++ familia',
-	'bão d+++',
 	'MAIS BOM MESMO EIN',
-	'O MAIS É BOM',
-	'O MAIS BOM',
+	'bão d+++',
+	'O MAIS BOM É',
 ];
 
 const Bot = new Twit({
@@ -21,7 +21,11 @@ const Bot = new Twit({
 console.log('ligado');
 let count = 0;
 setInterval(function () {
+	if (count === maisebom.length - 1) {
+		count = 0;
+	}
 	const BotInit = () => {
+		console.log(maisebom[count]);
 		Bot.post(
 			'statuses/update',
 			{
@@ -33,9 +37,6 @@ setInterval(function () {
 		);
 	};
 
-	if (count === maisebom.length - 1) {
-		count = 0;
-	}
 	count++;
 	BotInit();
 }, 60 * 60 * 1000); // 1 hora
