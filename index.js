@@ -25,7 +25,7 @@ setInterval(function () {
 		count = 0;
 	}
 	const BotInit = () => {
-		console.log(maisebom[count]);
+		console.log(maisebom[count] + ' - ' + count);
 		Bot.post(
 			'statuses/update',
 			{
