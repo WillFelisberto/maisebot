@@ -39,4 +39,4 @@ setInterval(function () {
 
 	count++;
 	BotInit();
-}, 3600000); // 1 hora
+}, 3600000 * 3); // 1 hora
